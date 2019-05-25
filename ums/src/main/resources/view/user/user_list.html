@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+		<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<table class="table table-hover">
+			<caption>用户信息列表</caption>
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>用户姓名</th>
+					<th>登录名</th>
+					<th>性别</th>
+					<th>电话号码</th>
+					<th>电子邮件</th>
+					<th>创建时间</th>
+					<th>修改时间</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user,iterStat:${page.list}">
+					<td>
+						<label th:text="${iterStat.count}"></label>
+					</td>
+					<td>
+						<label th:text="${user.username}"></label>
+					</td>
+					<td>
+						<label th:text="${user.loginName}"></label>
+					</td>
+					<td>
+						<label th:if="${user.gender}=='M'">男</label>
+						<label th:unless="${user.gender}=='M'">女</label>
+					</td>
+					<td>
+						<label th:text="${user.cellphone}"></label>
+					</td>
+					<td>
+						<label th:text="${user.email}"></label>
+					</td>
+					<td>
+						<label th:text="${#dates.format(user.createDate, 'yyyy-MM-dd')}"></label>
+					</td>
+					<td>
+						<label th:text="${#dates.format(user.updateDate, 'yyyy-MM-dd')}"></label>
+					</td>
+					<td>
+						<a th:href="|update/${user.userId}|" class="btn btn-warning btn-xs">修改</a>
+						<a th:href="#" class="btn btn-danger btn-xs">删除</a>
+					</td>
+				</tr>
+			</tbody>
+					<tfoot>
+			<tr>
+				<td colspan="9" align="right">
+						<a href="list?pageNum=0">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						<label th:if="${page.pageNum} eq 0">上一页&nbsp;&nbsp;&nbsp;&nbsp;</label>
+						<label th:unless="${page.pageNum}==0">
+							<a th:href="|list?pageNum=${page.pageNum-1}|">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label th:if="${page.pageNum}==${page.totalPage}-1">下一页&nbsp;&nbsp;&nbsp;&nbsp;</label>
+						<label th:unless="${page.pageNum}==${page.totalPage}-1">
+							<a th:href="|list?pageNum=${page.pageNum+1}|">下一页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<a th:href="|list?pageNum=${page.totalPage}|">末页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</td>
+				</tr>
+		</tfoot>
+		</table>
+	</body>
+	</body>
+</html>

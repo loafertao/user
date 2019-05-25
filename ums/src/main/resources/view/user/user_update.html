@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="registry" method="post">
+		<table>
+		
+			<tr>
+				<td align="right">
+					<label>真实姓名：</label>
+				</td>
+				<td>
+					<input type="text" id="username" name="username" th:value="${user.username}">
+					<input type="text" id="userId" name="username" th:value="${user.username}">
+				</td>
+			</tr>
+			<tr>
+				<td align="right">
+					<label>登录名：</label>
+				</td>
+				<td>
+					<input type="text" id="loginName" name="loginName" placeholder="请输入您的登录名">
+				</td>
+			</tr>
+			<tr>
+				<td align="right">
+					<label>登录密码：</label>
+				</td>
+				<td>
+					<input type="password" id="password" name="password" placeholder="请输入您的登录密码">
+				</td>
+			</tr>
+			<tr>
+				<td align="right">
+					<label>性别：</label>
+				</td>
+				<td>
+					<input type="radio" name="gender" value="M">男&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="gender" value="F">女
+				</td>
+			</tr>
+			<tr>
+				<td align="right">
+					<label>联系电话：</label>
+				</td>
+				<td>
+					<input type="text" id="cellphone" name="cellphone" placeholder="请输入您的联系电话">
+				</td>
+			</tr>
+			<tr>
+				<td align="right">
+					<label>电子邮箱：</label>
+				</td>
+				<td>
+					<input type="text" id="email" name="email" placeholder="请输入您的电子邮箱">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right">
+					<a href="login">点击登录</a>
+					<input type="submit" value="注册">
+				</td>
+			</tr>
+		</table>
+	</form>
+	
+</body>
+</html>
