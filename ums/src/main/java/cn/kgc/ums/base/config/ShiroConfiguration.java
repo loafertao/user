@@ -1,5 +1,5 @@
 package cn.kgc.ums.base.config;
-
+//注释
 import java.util.LinkedHashMap;
 import java.util.Map;
 import org.apache.shiro.mgt.SecurityManager;
